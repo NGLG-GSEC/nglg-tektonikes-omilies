@@ -222,8 +222,9 @@
   .wing-count{
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
-    color:var(--ink-dim);
-    font-size:14px;
+    font-variant-numeric:lining-nums;
+    color:#c0392b;
+    font-size:18px;
   }
   .wing-thread{
     flex:1;
@@ -554,8 +555,37 @@
     position:relative;
     z-index:10;
     display:flex;
+    align-items:center;
+  }
+  .vitrine-frame{
+    display:flex;
     align-items:flex-end;
     perspective:1400px;
+  }
+  .vitrine-plaque{
+    flex:0 0 auto;
+    width:230px;
+    margin-right:22px;
+    padding-right:18px;
+    border-right:1px solid var(--rule);
+  }
+  .vitrine-plaque p{
+    margin:0;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:20px;
+    line-height:1.5;
+    color:var(--gold);
+    text-shadow:0 1px 2px rgba(0,0,0,0.5);
+  }
+  .vitrine-plaque-author{
+    margin-top:10px !important;
+    font-family:'Cinzel', serif;
+    font-style:normal !important;
+    font-weight:600;
+    font-size:12px !important;
+    letter-spacing:.08em;
+    color:var(--gold-dim) !important;
   }
   .vitrine-door{
     flex:0 0 auto;
@@ -613,17 +643,18 @@
   }
   .book-beyond:focus-visible{outline:2px solid var(--gold-bright); outline-offset:4px;}
   .wing-beyond-copy{
-    max-width:760px;
-    margin:28px auto 0;
+    width:100%;
+    margin:28px 0 0;
     padding:0 6px;
     text-align:left;
   }
   .wing-beyond-copy p{
     font-family:'Cormorant Garamond', serif;
-    font-size:17px;
+    font-size:clamp(15px, 1.5vw, 18px);
     line-height:1.7;
     color:var(--ink);
     margin:0 0 16px;
+    max-width:none;
   }
   .vitrine-quote{
     margin-top:24px !important;
@@ -668,9 +699,35 @@
       0 0 0 1px rgba(0,0,0,0.35);
   }
   .vitrine-cta a:focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px;}
+  @media (max-width:900px){
+    .wing-beyond .row{
+      flex-direction:column;
+      align-items:center;
+      overflow-x:visible;
+      padding-bottom:24px;
+    }
+    .wing-beyond .vitrine-stage{flex:none; width:100%;}
+    .vitrine{flex-direction:column; align-items:center; width:100%;}
+    .vitrine-plaque{
+      width:100%;
+      max-width:420px;
+      margin:0 0 20px;
+      padding:0 0 16px;
+      border-right:none;
+      border-bottom:1px solid var(--rule);
+      text-align:center;
+    }
+    .wing-beyond .shelf-label{
+      margin:20px 0 0;
+      align-self:center;
+      text-align:center;
+      padding:0;
+    }
+  }
   @media (max-width:640px){
     .vitrine-door{width:34px; height:210px;}
     .book-beyond{width:150px;}
+    .vitrine-plaque p{font-size:17px;}
   }
 
   /* ---------- Αγγλικό τμήμα ---------- */
@@ -1263,16 +1320,22 @@
       <div class="row">
         <div class="vitrine-stage">
           <div class="vitrine">
-            <div class="vitrine-door vitrine-door--left" aria-hidden="true"><span class="vitrine-pane"></span></div>
-            <div class="slot slot--beyond">
-              <a class="book-beyond" target="_blank" rel="noopener"
-                 href="library/0021-peran-tis-syntexnias.pdf" aria-label="Πέραν Της Συντεχνίας — άνοιγμα PDF">
-                <img src="assets/peran-tis-syntexnias-cover.jpg" width="687" height="1024"
-                     alt="Εξώφυλλο: Πέραν Της Συντεχνίας — Η Συνέχεια Του Τεκτονικού Ταξιδιού" loading="lazy" decoding="async">
-              </a>
-              <div class="flyout flyout--wide"><h4>Πέραν Της Συντεχνίας</h4><p class="flyout-note">Σώματα, προϋποθέσεις συμμετοχής και η σημασία της περαιτέρω τεκτονικής αναζήτησης · Σεβτ. Αδ. Ιωάννης Μπενετάτος, Μέγας Διδάσκαλος</p><a href="library/0021-peran-tis-syntexnias.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
+            <div class="vitrine-plaque">
+              <p>… Η αναδίφηση της αλήθειας είναι αέναη.<br>Ο λίθος δεν αποτελεί το τέλος, συμβολίζει τη δημιουργική βάση του πνεύματος….</p>
+              <p class="vitrine-plaque-author">Βασίλειος Γαλής</p>
             </div>
-            <div class="vitrine-door vitrine-door--right" aria-hidden="true"><span class="vitrine-pane"></span></div>
+            <div class="vitrine-frame">
+              <div class="vitrine-door vitrine-door--left" aria-hidden="true"><span class="vitrine-pane"></span></div>
+              <div class="slot slot--beyond">
+                <a class="book-beyond" target="_blank" rel="noopener"
+                   href="library/0021-peran-tis-syntexnias.pdf" aria-label="Πέραν Της Συντεχνίας — άνοιγμα PDF">
+                  <img src="assets/peran-tis-syntexnias-cover.jpg" width="687" height="1024"
+                       alt="Εξώφυλλο: Πέραν Της Συντεχνίας — Η Συνέχεια Του Τεκτονικού Ταξιδιού" loading="lazy" decoding="async">
+                </a>
+                <div class="flyout flyout--wide"><h4>Πέραν Της Συντεχνίας</h4><p class="flyout-note">Σώματα, προϋποθέσεις συμμετοχής και η σημασία της περαιτέρω τεκτονικής αναζήτησης · Σεβτ. Αδ. Ιωάννης Μπενετάτος, Μέγας Διδάσκαλος</p><a href="library/0021-peran-tis-syntexnias.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
+              </div>
+              <div class="vitrine-door vitrine-door--right" aria-hidden="true"><span class="vitrine-pane"></span></div>
+            </div>
           </div>
         </div>
         <div class="shelf-label"><span class="lead">Beyond</span><span>the Craft</span></div>
