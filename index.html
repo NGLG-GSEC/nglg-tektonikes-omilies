@@ -564,9 +564,9 @@
   }
   .vitrine-plaque{
     flex:0 0 auto;
-    width:230px;
-    margin-right:22px;
-    padding-right:18px;
+    width:200px;
+    margin-right:20px;
+    padding-right:16px;
     border-right:1px solid var(--rule);
   }
   .vitrine-plaque p{
@@ -617,10 +617,10 @@
   .vitrine-pane::before, .vitrine-pane::after{content:""; position:absolute; background:rgba(201,162,75,0.42);}
   .vitrine-pane::before{left:50%; top:0; bottom:0; width:1.5px; transform:translateX(-50%);}
   .vitrine-pane::after{top:50%; left:0; right:0; height:1.5px; transform:translateY(-50%);}
-  .slot--beyond{margin:0 10px; z-index:2;}
+  .slot--beyond{margin:0 8px; z-index:2;}
   .book-beyond{
     display:block;
-    width:182px;
+    width:148px;
     border-radius:4px;
     overflow:hidden;
     line-height:0;
@@ -762,6 +762,11 @@
     }
     .wing-beyond .vitrine-stage{flex:none; width:100%;}
     .vitrine{flex-direction:column; align-items:center; width:100%;}
+    .vitrine-frame{
+      max-width:100%;
+      overflow-x:auto;
+      padding:4px 4px 10px;
+    }
     .vitrine-plaque{
       width:100%;
       max-width:420px;
@@ -779,8 +784,8 @@
     }
   }
   @media (max-width:640px){
-    .vitrine-door{width:34px; height:210px;}
-    .book-beyond{width:150px;}
+    .vitrine-door{width:34px; height:210px; flex:0 0 auto;}
+    .book-beyond{width:130px; flex:0 0 auto;}
     .vitrine-plaque p{font-size:17px;}
   }
 
@@ -1368,7 +1373,7 @@
     <div class="wing-head">
       <span class="wing-title" id="wbeyond">Πέραν Της Συντεχνίας</span>
       <span class="wing-thread"></span>
-      <span class="wing-count">2 τόμοι</span>
+      <span class="wing-count">3 τόμοι</span>
     </div>
     <div class="case">
       <div class="row">
@@ -1390,10 +1395,18 @@
               <div class="slot slot--beyond">
                 <a class="book-beyond" target="_blank" rel="noopener"
                    href="library/0022-the-holy-royal-arch.pdf" aria-label="The Holy Royal Arch — open PDF">
-                  <img src="assets/holy-royal-arch-cover.png" width="2100" height="2970"
+                  <img src="assets/holy-royal-arch-cover.png" width="1024" height="1536"
                        alt="Cover: The Holy Royal Arch — History, Symbolism and the Philosophy of Recovery" loading="lazy" decoding="async">
                 </a>
                 <div class="flyout flyout--wide"><h4>The Holy Royal Arch</h4><p class="flyout-note">History, Symbolism and the Philosophy of Recovery · From the Loss of the Word to the Recovery of Meaning · MWBro Ioannis Benetatos, Grand Master</p><a href="library/0022-the-holy-royal-arch.pdf" target="_blank" rel="noopener">Read →</a></div>
+              </div>
+              <div class="slot slot--beyond">
+                <a class="book-beyond" target="_blank" rel="noopener"
+                   href="library/0023-i-iera-vasiliki-apsida.pdf" aria-label="Η Ιερά Βασιλική Αψίδα — άνοιγμα PDF">
+                  <img src="assets/iera-vasiliki-apsida-cover.png" width="1024" height="1536"
+                       alt="Εξώφυλλο: Η Ιερά Βασιλική Αψίδα — Ιστορία, Συμβολισμός και η Φιλοσοφία της Αποκατάστασης" loading="lazy" decoding="async">
+                </a>
+                <div class="flyout flyout--wide"><h4>Η Ιερά Βασιλική Αψίδα</h4><p class="flyout-note">Ιστορία, Συμβολισμός και η Φιλοσοφία της Αποκατάστασης · Από την Απώλεια του Λόγου στην Ανάκτηση του Νοήματος · Σεβτ. Αδ. Ιωάννης Μπενετάτος, Μέγας Διδάσκαλος</p><a href="library/0023-i-iera-vasiliki-apsida.pdf" target="_blank" rel="noopener">Ανάγνωση →</a></div>
               </div>
               <div class="vitrine-door vitrine-door--right" aria-hidden="true"><span class="vitrine-pane"></span></div>
             </div>
