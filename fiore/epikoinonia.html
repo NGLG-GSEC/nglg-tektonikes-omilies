@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Επικοινωνία | Fiore Rubinetterie</title>
+<meta name="description" content="Επικοινωνήστε με τη Fiore Rubinetterie για προϊόντα, καταλόγους και συνεργασίες στην Ελλάδα.">
+<meta name="theme-color" content="#f6f4f0">
+<link rel="icon" href="img/fiore-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap&subset=greek" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap reveal">
+      <p class="crumbs"><a href="index.html">Αρχική</a> / Επικοινωνία</p>
+      <h1>Επικοινωνία</h1>
+      <p class="lead">Για πληροφορίες προϊόντων, σημεία πώλησης και προσφορές έργων, στείλτε μας μήνυμα.</p>
+    </div>
+  </section>
+  <section style="padding-bottom:40px">
+    <div class="wrap contact-grid">
+      <div class="info-card reveal">
+        <h3>Fiore Rubinetterie S.r.l.</h3>
+        <dl>
+          <div><dt>Έδρα & εργοστάσιο</dt><dd>Borgomanero (Novara), Ιταλία</dd></div>
+          <div><dt>Ελλάδα</dt><dd><a href="https://www.fiore.gr" target="_blank" rel="noopener">www.fiore.gr</a></dd></div>
+          <div><dt>Διεθνής ιστότοπος</dt><dd><a href="https://www.fiore.it" target="_blank" rel="noopener">www.fiore.it</a></dd></div>
+          <div><dt>Επαγγελματίες</dt><dd><a href="b2b.html">Πύλη B2B & αίτηση πρόσβασης</a></dd></div>
+        </dl>
+        <div class="tile" style="--t:#ecebe8;aspect-ratio:4/3"><img src="img/88nn5550.webp" alt="Kera αναμικτήρας ντους σε μαύρο ματ"></div>
+      </div>
+      <form class="form reveal" data-mail="Επικοινωνία" novalidate>
+        <div class="field"><label for="c-name">Ονοματεπώνυμο *</label><input id="c-name" name="Ονοματεπώνυμο" required autocomplete="name"></div>
+        <div class="field"><label for="c-email">Email *</label><input id="c-email" name="Email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="c-phone">Τηλέφωνο</label><input id="c-phone" name="Τηλέφωνο" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="c-topic">Θέμα *</label>
+          <select id="c-topic" name="Θέμα" required><option value="">Επιλέξτε…</option><option>Πληροφορίες προϊόντος</option><option>Σημεία πώλησης</option><option>Προσφορά για έργο</option><option>Ανταλλακτικά / Service</option><option>Άλλο</option></select></div>
+        <div class="field full"><label for="c-series">Σειρά ενδιαφέροντος</label><input id="c-series" name="Σειρά" placeholder="π.χ. Kube σε κοβάλτιο"></div>
+        <div class="field full"><label for="c-msg">Μήνυμα *</label><textarea id="c-msg" name="Μήνυμα" required></textarea></div>
+        <label class="check full"><input type="checkbox" name="consent" required> Συμφωνώ με την επεξεργασία των στοιχείων μου για την απάντηση στο αίτημά μου.</label>
+        <div class="full" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><button class="btn btn-dark" type="submit">Αποστολή <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="form-status" role="status"></span></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
