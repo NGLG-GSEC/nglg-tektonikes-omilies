@@ -15,7 +15,10 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); };
-  var img = function (name) { return 'img/' + name + '.webp'; };
+  // FIORE_SPA: έκδοση ενός αρχείου (όλες οι σελίδες και οι εικόνες σε ένα HTML)
+  var SPA = window.FIORE_SPA;
+  var img = function (name) { return SPA ? SPA.img[name] : 'img/' + name + '.webp'; };
+  var hashSub = function () { return SPA ? SPA.sub() : location.hash.slice(1); };
 
   var ICON = {
     arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
@@ -121,8 +124,7 @@
     });
   }
 
-  var grid = $('#series-grid');
-  if (grid) {
+  $$('[data-series-grid]').forEach(function (grid) {
     var ids = grid.getAttribute('data-ids');
     var list = ids ? ids.split(',').map(function (id) { return SERIES.filter(function (s) { return s.id === id; })[0]; }).filter(Boolean) : SERIES;
     var state = { cat: 'all', q: '' };
@@ -137,7 +139,7 @@
       bindCards(grid);
       observeReveal(grid);
     };
-    var filters = $('#series-filters');
+    var filters = grid.getAttribute('data-filters') ? $('#' + grid.getAttribute('data-filters')) : null;
     if (filters) {
       var chips = [['all', 'Όλες']].concat(Object.keys(CATS).map(function (k) { return [k, CATS[k]]; }));
       filters.innerHTML = chips.map(function (c) {
@@ -153,15 +155,16 @@
       filters.addEventListener('click', function (e) {
         var b = e.target.closest('.filter'); if (!b) return;
         setCat(b.getAttribute('data-cat'));
-        try { history.replaceState(null, '', b.getAttribute('data-cat') === 'all' ? location.pathname : '#' + b.getAttribute('data-cat')); } catch (err) {}
+        var c = b.getAttribute('data-cat');
+        try { history.replaceState(null, '', SPA ? SPA.hash('seires', c === 'all' ? '' : c) : (c === 'all' ? location.pathname : '#' + c)); } catch (err) {}
       });
       $('input', filters).addEventListener('input', function (e) { state.q = e.target.value; render(); });
-      setCat(location.hash.slice(1));
-      window.addEventListener('hashchange', function () { setCat(location.hash.slice(1)); });
+      setCat(hashSub());
+      window.addEventListener('hashchange', function () { setCat(hashSub()); });
     } else {
       render();
     }
-  }
+  });
 
   /* ---------- Series modal ---------- */
   var modal;
